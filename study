@@ -1,0 +1,5 @@
+##安装库
+python -m pip install -r requirements.txt
+遇到的问题：安装好了，但是运行代码显示没有相应模块
+根源：同时装了python27和Python36，装python27时勾选了环境变量，而装python3没有，因此所有的库都装到2里了
+解决方法：改环境变量，把python27去掉，替换成python36；再装库；问题解决。
