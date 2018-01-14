@@ -1,3 +1,22 @@
+##安装库
+python -m pip install -r requirements.txt
+遇到的问题：安装好了，但是运行代码显示没有相应模块
+根源：同时装了python27和Python36，装python27时勾选了环境变量，而装python3没有，因此所有的库都装到2里了
+解决方法：改环境变量，把python27去掉，替换成python36；再装库；问题解决。
+
+##功能测试
+运行demo，可接收消息，红包，图片，语音（存为文件），位置，链接等。
+but，不能发送，阅读代码，发现def start（self）中的while TRUE，这一部分内容，而实际start结束后进入了消息监听，即def listenMsgMode中，因此把while true挪到listenmsgmode中，可以发送消息了，但是会影响接收。
+
+##发送消息
+如前所述，直接把发送部分挪过来会影响接收，把发送的while true放到接收后面，又捕捉不到屏幕……
+研究@catchKeyboardInterrupt  其中@表示函数修饰符。其实就是一个函数调用，不过调用的函数又是修饰符下面的方法。参考：
+http://blog.sina.com.cn/s/blog_6fe87f870101d9cm.html  以及  http://python.jobbole.com/80956/
+
+
+
+
+
 # WeixinBot [![star this repo](http://github-svg-buttons.herokuapp.com/star.svg?user=Urinx&repo=WeixinBot&style=flat&background=1081C1)](http://github.com/Urinx/WeixinBot) [![fork this repo](http://github-svg-buttons.herokuapp.com/fork.svg?user=Urinx&repo=WeixinBot&style=flat&background=1081C1)](http://github.com/Urinx/WeixinBot/fork) ![python](https://img.shields.io/badge/python-2.7%20&%203.6-ff69b4.svg)
 
 网页版微信API，包含终端版微信及微信机器人
